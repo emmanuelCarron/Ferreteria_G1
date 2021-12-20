@@ -12,10 +12,9 @@ namespace FerreteriaNetCore.DAO
         //Modificar la cadena de conexión
         private static string connectionString = 
             "Server=localhost;" +
-            "Database=FerreteriaDb;" +
+            "Database=ferreteria;" +
             "Uid=root;" +
-            "Pwd=password;" +
-            "SSL Mode=None;";
+            "Pwd=password;";
 
         #region Métodos del singleton
         private static Database instance = null;
