@@ -22,7 +22,6 @@ namespace FerreteriaNetCore.DAO
         {
             try
             {
-                if(this.session == null || this.session.IsOpen) return false;
                 this.transaction = this.session.BeginTransaction();
                 return true;
             }

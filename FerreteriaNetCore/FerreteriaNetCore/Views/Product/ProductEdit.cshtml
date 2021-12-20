@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ProductViewModel
+@{
     ViewData["Title"] = "Product edit";
 
     Layout = "_Layout";
@@ -33,20 +34,22 @@
     
     <div>
 
+        <input type="hidden" name="Id" value="@Model.Id">
+
         <label for="">Product Name</label>
-        <input type="text" placeholder="Driller" name="ProductName">
+        <input type="text" placeholder="Driller" name="ProductName" value="@Model.Name">
 
         <label for="">Brand</label>
-        <input type="text" placeholder="Makita" name="Brand">
+        <input type="text" placeholder="Makita" name="Brand" value="@Model.Brand">
 
         <label for="">Category</label>
-        <input type="text" placeholder="Electrics" name="Category">
+        <input type="text" placeholder="Electrics" name="Category" value="@Model.Category">
 
         <label for="">Description</label>
-        <input type="text" placeholder="Short one..." name="Description">
+        <input type="text" placeholder="Short one..." name="Description" value="@Model.Description">
 
         <label for="">Quantity</label>
-        <input type="number" name="Quantity">
+        <input type="number" name="Quantity" value="@Model.Quantity">
 
         <input type="submit" value="Load">
 

@@ -63,12 +63,13 @@
         }, {
             "data": function(row, type, set){
                 let s = `<div>`;
-                s +=   `<button id='simular_${row.id}' 
-                                type='button' 
-                                class='btn btn-sm btn-secondary mr-1' 
-                                onclick='abrirSimulador("${row.id}")'>
-                                Editar
-                        </button>`;
+
+                s += `<a  id='edit_${row.id}'
+                            type='button'
+                            class='btn btn-sm btn-secondary mr-1'
+                            href='${urlContent}Product/Edit/${row.id}'>
+                            Editar
+                        </a>`;
                 s += `</div>`;
                 return s;
             },

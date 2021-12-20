@@ -18,12 +18,10 @@ namespace FerreteriaNetCore.Controllers
 
         public IActionResult Index()
         {
-
             HttpContext.Session.Clear();
 
             return View();
         }
-
 
         public IActionResult PasswordRecovery()
         {
@@ -34,30 +32,6 @@ namespace FerreteriaNetCore.Controllers
             }
             else{
                 return View("~/Views/User/PasswordRecovery.cshtml");
-            }
-        }
-
-        public IActionResult Search()
-        {
-            UserResponse userResponse = HttpContext.Session.Get<UserResponse>("UsuarioLogueado");
-            if (userResponse != null)
-            {
-                return View("~/Views/Product/ProductSearch.cshtml");
-            }
-            else{
-                return RedirectToAction("Index", "Home");
-            }
-        }
-
-        public IActionResult ProductEdit()
-        {
-            UserResponse userResponse = HttpContext.Session.Get<UserResponse>("UsuarioLogueado");
-            if (userResponse != null)
-            {
-                return View("~/Views/Product/ProductEdit.cshtml");
-            }
-            else{
-                return RedirectToAction("Index", "Home");
             }
         }
 

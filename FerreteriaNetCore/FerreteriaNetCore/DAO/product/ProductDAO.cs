@@ -3,6 +3,7 @@ using NHibernate.Criterion;
 using System.Collections.Generic;
 using FerreteriaNetCore.DAO.comun;
 using FerreteriaNetCore.Models.Entities;
+using System;
 
 namespace FerreteriaNetCore.DAO
 {
@@ -83,5 +84,19 @@ namespace FerreteriaNetCore.DAO
             prod.Quantity = newProduct.Quantity;
             this.session.Save(prod);
         }
+
+
+        public ProductModel GetProduct(long id)
+        {
+            try
+            {
+                return this.session.Get<ProductModel>(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("FerreteriaNetCore.dao.ProductDao.GetProduct(long id): Error al obtener el item con id = " + id.ToString(), ex);
+            }
+        }
+
     }
 }

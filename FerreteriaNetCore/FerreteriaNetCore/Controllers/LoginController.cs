@@ -19,31 +19,26 @@ namespace FerreteriaNetCore.Controllers
 
         public IActionResult Login(LoginDTO loginDTO)
         {
-            using(DAOFactory daoFactory = new DAOFactory()){
-
+            using(DAOFactory daoFactory = new DAOFactory())
+            {
                 UserModel user = daoFactory.UserDAO.GetUser(loginDTO.Username, loginDTO.Password);
 
-                if (user != null){
-
-                    UserResponse userResponse = new UserResponse
-                    {
-                        UserName = user.Username
-
-                    };
-
-                    HttpContext.Session.Set<UserResponse>(
-                        "UsuarioLogueado",
-                        userResponse
-                    );
-
-
-                    return RedirectToAction("Search", "Home");
-
-                }else{
-
+                if (user == null)
+                {
                     return RedirectToAction("Index", "Home");
-                    
                 }
+                
+                UserResponse userResponse = new UserResponse
+                {
+                    UserName = user.Username
+                };
+
+                HttpContext.Session.Set<UserResponse>(
+                    "UsuarioLogueado",
+                    userResponse
+                );
+
+                return RedirectToAction("Index", "Product");
             }
         }
     }
